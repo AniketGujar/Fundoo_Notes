@@ -1,0 +1,73 @@
+<body>
+    
+        <div fxLayout="row" fxLayoutAlign="space-evenly center" class="outer">
+
+            <div>
+                <div>
+                    <img mat-card-image src="../../../assets/1280px-Google_2015_logo.svg.png" alt="Google Image"
+                        class="logo">
+                </div>
+                <div>
+                    <h1>Create your Google Account</h1>
+                </div>
+
+                <div class="inDiv">
+                    <div fxLayout="column" fxLayoutAlign="start">
+                        <div fxLayout="row" fxLayoutAlign="space-between start" fxLayout.xs="column">
+                            <mat-form-field appearance="outline" class="name">
+                                <mat-label>First name</mat-label>
+                                <input matInput placeholder="First Name">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" class="name">
+                                <mat-label>Last name</mat-label>
+                                <input matInput placeholder="Last Name">
+                            </mat-form-field>
+                        </div>
+
+                        <mat-form-field appearance="outline" >
+                            <mat-label>Username</mat-label>
+                            <input matInput placeholder="Placeholder">
+                            <mat-icon matSuffix>@gmail.com</mat-icon>
+                        </mat-form-field>
+                        <label class="labels">You can use letters,numbers & periods</label>
+
+                        <div class="example-button-row" class="btn">
+                            <button mat-button color="primary">Use my current email address instead</button>
+                        </div>
+    
+                        <div fxLayout="row" fxLayoutAlign="space-between start">
+                            <mat-form-field appearance="outline" class="name">
+                                <mat-label>Password</mat-label>
+                                <input matInput type="password" placeholder="Password" class="name">
+                            </mat-form-field>
+    
+                            <mat-form-field appearance="outline" class="name">
+                                <mat-label>Confirm</mat-label>
+                                <input matInput type="password" placeholder="Confirm" class="name">
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+
+
+                    <p class="labels">Use 8 or more characters with a mix of letters, numbers & symbols</p>
+
+                    <section class="example-section">
+                        <mat-checkbox class="example-margin" id="pass">Show Password</mat-checkbox>
+                    </section>
+
+                    <div class="example-button-row" class="butn">
+                        <button mat-button color="primary">Sign in instead</button>
+                        <button mat-flat-button color="primary" style="float: right;">Next</button>
+                    </div>
+                </div>
+            </div>
+            <div class="img-div">
+                <img mat-card-image src="../../../assets/account.svg" alt="Google Image" width="244" height="244" style="margin: 0px;">
+                <figcaption class="figCap">One account. All of Google working for you.</figcaption>
+            </div>
+        </div>
+
+
+</body>
