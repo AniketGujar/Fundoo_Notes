@@ -1,73 +1,95 @@
-<body>
-    
-        <div fxLayout="row" fxLayoutAlign="space-evenly center" class="outer">
+<div fxFlex.xs=95 fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-evenly center" fxLayoutAlign.xs="center"
+    class="outer">
 
-            <div>
-                <div>
-                    <img mat-card-image src="../../../assets/1280px-Google_2015_logo.svg.png" alt="Google Image"
-                        class="logo">
-                </div>
-                <div>
-                    <h1>Create your Google Account</h1>
-                </div>
-
-                <div class="inDiv">
-                    <div fxLayout="column" fxLayoutAlign="start">
-                        <div fxLayout="row" fxLayoutAlign="space-between start" fxLayout.xs="column">
-                            <mat-form-field appearance="outline" class="name">
-                                <mat-label>First name</mat-label>
-                                <input matInput placeholder="First Name">
-                            </mat-form-field>
-
-                            <mat-form-field appearance="outline" class="name">
-                                <mat-label>Last name</mat-label>
-                                <input matInput placeholder="Last Name">
-                            </mat-form-field>
-                        </div>
-
-                        <mat-form-field appearance="outline" >
-                            <mat-label>Username</mat-label>
-                            <input matInput placeholder="Placeholder">
-                            <mat-icon matSuffix>@gmail.com</mat-icon>
-                        </mat-form-field>
-                        <label class="labels">You can use letters,numbers & periods</label>
-
-                        <div class="example-button-row" class="btn">
-                            <button mat-button color="primary">Use my current email address instead</button>
-                        </div>
-    
-                        <div fxLayout="row" fxLayoutAlign="space-between start">
-                            <mat-form-field appearance="outline" class="name">
-                                <mat-label>Password</mat-label>
-                                <input matInput type="password" placeholder="Password" class="name">
-                            </mat-form-field>
-    
-                            <mat-form-field appearance="outline" class="name">
-                                <mat-label>Confirm</mat-label>
-                                <input matInput type="password" placeholder="Confirm" class="name">
-                            </mat-form-field>
-                        </div>
-
-                    </div>
-
-
-                    <p class="labels">Use 8 or more characters with a mix of letters, numbers & symbols</p>
-
-                    <section class="example-section">
-                        <mat-checkbox class="example-margin" id="pass">Show Password</mat-checkbox>
-                    </section>
-
-                    <div class="example-button-row" class="butn">
-                        <button mat-button color="primary">Sign in instead</button>
-                        <button mat-flat-button color="primary" style="float: right;">Next</button>
-                    </div>
-                </div>
-            </div>
-            <div class="img-div">
-                <img mat-card-image src="../../../assets/account.svg" alt="Google Image" width="244" height="244" style="margin: 0px;">
-                <figcaption class="figCap">One account. All of Google working for you.</figcaption>
-            </div>
+    <div>
+        <div>
+            <img mat-card-image src="../../../assets/1280px-Google_2015_logo.svg.png" alt="Google Image" class="logo">
+        </div>
+        <div>
+            <h1>Create your Google Account</h1>
         </div>
 
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="inDiv" [style.fontSize.px]="12">
+                <div fxLayout="column" fxLayoutAlign="start">
+                    <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutAlign.xs="space-evenly start"
+                        fxLayout.xs="column">
+                        <mat-form-field appearance="outline" class="name">
+                            <mat-label>First name</mat-label>
+                            <input matInput placeholder="First Name" class="form-control" formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" >
+                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                <div *ngIf="f.firstName.errors.pattern">Invalid First Name</div>
+                            </div>
+                        </mat-form-field>
 
-</body>
+                        <mat-form-field appearance="outline" class="name">
+                            <mat-label>Last name</mat-label>
+                            <input matInput placeholder="Last Name" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+                            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                                <div *ngIf="f.lastName.errors.pattern">Invalid Last Name</div>
+                            </div>
+                        </mat-form-field>
+                    </div>
+
+                    <mat-form-field appearance="outline" class="uName">
+                        <mat-label>Username</mat-label>
+                        <input matInput placeholder="Placeholder" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            <div *ngIf="f.email.errors.pattern">Invalid Email</div>
+                        </div>
+                        <mat-icon matSuffix>@</mat-icon>
+                    </mat-form-field>
+                    <label class="labels">You can use letters,numbers & periods</label>
+
+                    <div class="example-button-row" class="btn">
+                        <button mat-button color="primary">Use my current email address instead</button>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="space-between start" fxLayoutAlign.xs="space-evenly start"
+                        fxLayout.xs="column">
+                        <mat-form-field appearance="outline" class="name">
+                            <mat-label>Password</mat-label>
+                            <input matInput type="password" placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" ng-model="password">
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                            </div>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="name">
+                            <mat-label>Confirm</mat-label>
+                            <input matInput type="password" placeholder="Confirm" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" ng-model="passwordConfirm" match="password">
+                            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                                <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                                <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                            </div>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+
+
+                <p class="labels">Use 8 or more characters with a mix of letters, numbers & symbols</p>
+
+                <section class="example-section">
+                    <mat-checkbox class="example-margin" id="pass">Show Password</mat-checkbox>
+                </section>
+
+                <div class="example-button-row" class="butn">
+                    <button mat-button color="primary">Sign in instead</button>
+                    <button mat-flat-button color="primary" style="float: right;" type="submit">Next</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="img-div">
+        <img mat-card-image src="../../../assets/account.svg" alt="Google Image" width="244" height="244"
+            style="margin: 0px;">
+        <figcaption class="figCap">One account. All of Google working for you.</figcaption>
+    </div>
+</div>

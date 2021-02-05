@@ -1,6 +1,8 @@
-body{
-    width: auto;
-    height: auto;
+@media screen and (max-width:850px){
+    body{
+        margin-left: 60px;
+        margin-top: 20px;   
+    }
 }
 
 .outer{
@@ -13,11 +15,13 @@ body{
     margin-top: 30px;
 }
 
-@media screen and (max-width:960px){
+@media screen and (max-width:850px){
     .outer{
+        padding:0px;
         border: none;
-        width: auto;
-        height: auto;
+        width: 100%;
+        height: 100%;
+        margin: auto;
     }
 }
 
@@ -25,40 +29,19 @@ body{
     width: 75px;
     height: 24px;
     margin:0px;
-    margin-left:-40px;
 }
 
-h1{
-    margin-left:-40px;
-}
-
-.inDiv{
-    width: 350px;
-    height: 450px;
-    margin-left:-40px;
-}
 .name{
-    width: 170px;
+    width: 49%;
 }
 
-@media screen and (max-width:960px){
+@media screen and (max-width:850px){
     .name{
-        width: auto;
+        width: 100%;
     }
-}
-
-.box{
-    align-content: center;
-    width: 668px;
-    height: 513px;
-    padding:50px;
-}
-
-.userSpan{
-    text-align: left;
-    box-sizing: inherit;
-    line-height: 24px;
-    display: inline-block;
+    .uName{
+        width: 100%;
+    }
 }
 
 .img-div{
@@ -68,7 +51,7 @@ h1{
     height: auto;
 }
 
-@media screen and (max-width:960px){
+@media screen and (max-width:850px){
     .img-div{
         visibility: hidden;
     }
@@ -76,7 +59,7 @@ h1{
 
 .figCap{
     width: 244px;
-    margin-left:20px;
+    margin-left:-10px;
     font-size: 16px;
     text-align: center;
 }
