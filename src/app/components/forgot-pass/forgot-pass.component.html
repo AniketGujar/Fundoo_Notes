@@ -1,0 +1,33 @@
+<div fxLayout="column" fxLayoutAlign="space-evenly center" class="outer">
+    <div fxLayout="row" class="fundoo">
+        <h1 style="color: #4285F4;">F</h1>
+        <h1 style="color: #EA4335;">u</h1>
+        <h1 style="color: #FBBC04;">n</h1>
+        <h1 style="color: #4285F4;">d</h1>
+        <h1 style="color: #34A853;">o</h1>
+        <h1 style="color: #EA4335;">o</h1>
+    </div>
+    <div>
+        <h1>Account recovery</h1>
+    </div>
+    <div>
+        <h4>Enter your Email Id of fundoo account</h4>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center" fxFill>
+        <form #userId="ngForm" (ngSubmit)="onClickSubmit(userId.value)">
+            <div>
+                <mat-form-field appearance="outline" class="name" fxFlex>
+                    <mat-label>Email Id</mat-label>
+                    <input matInput type="text" placeholder="Enter Email Id" name="email" ngModel>
+                </mat-form-field>
+            </div>
+
+            <div>
+                    <div class="example-button-row" class="butn">
+                    <button mat-button color="primary">Try another way</button>
+                    <button mat-flat-button color="primary" style="float: right;" type="submit" value="submit">Next</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
