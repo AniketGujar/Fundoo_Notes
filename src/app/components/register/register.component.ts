@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
   submitted = false;
+  showPassword = false;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService, private snackBar: MatSnackBar) { }
 
@@ -20,12 +21,12 @@ export class RegisterComponent implements OnInit {
       firstName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(12), Validators.pattern('^[A-Z]+[a-zA-Z]{2,}$')]],
       lastName: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(12), Validators.pattern('^[A-Z]+[a-zA-Z]{2,}$')]],
       email: ['', [Validators.required, Validators.email, Validators.pattern('^([a-z]+[0-9a-z-!$%+&_.]*){3,15}@[a-z0-9]{1,8}[.]*([a-z]{2,4})*.[a-z]{2,4}$')]],
-      password: ['', [Validators.required, Validators.minLength(8),Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$')]],
+      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$')]],
       confirmPassword: ['', Validators.required]
-      },
+    },
       {
         validator: this.MustMatch('password', 'confirmPassword')
-    });
+      });
   }
 
   get f() { return this.registerForm.controls; }
@@ -65,16 +66,16 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  MustMatch=(controlName: string, matchingControlName: string)=> {
+  MustMatch = (controlName: string, matchingControlName: string) => {
     return (formGroup: FormGroup) => {
-        const control = formGroup.controls[controlName];
-        const matchingControl = formGroup.controls[matchingControlName];
+      const control = formGroup.controls[controlName];
+      const matchingControl = formGroup.controls[matchingControlName];
 
-        if (control.value !== matchingControl.value) {
-            matchingControl.setErrors({ mustMatch: true });
-        } else {
-            matchingControl.setErrors(null);
-        }
+      if (control.value !== matchingControl.value) {
+        matchingControl.setErrors({ mustMatch: true });
+      } else {
+        matchingControl.setErrors(null);
+      }
     }
-}
+  }
 }

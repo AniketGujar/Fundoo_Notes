@@ -15,27 +15,43 @@
     </div>
 
     <div fxLayout="column" fxLayoutAlign="center" fxFill>
-        <form #resetPass="ngForm" (ngSubmit)="onClickSubmit(resetPass.value)">
-            <div>
-                <mat-form-field appearance="outline" class="name" fxFill>
-                    <mat-label>New Password</mat-label>
-                    <input matInput placeholder="New Password" type="password" name="password" ngModel>
+        <form [formGroup]="resetForm" (ngSubmit)="onClickSubmit()">
+            <div fxLayout="column" fxLayoutAlign="start" class="name">
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input [type]="showPassword ? 'text' : 'password'" matInput type="password" placeholder="Password"
+                        formControlName="password" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.password.errors }" ng-model="password">
                 </mat-form-field>
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                    <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters, include leters,
+                        symbol & number</div>
+                </div>
             </div>
-            <div>
-                <mat-form-field appearance="outline" class="name" fxFlex>
-                    <mat-label>Confirm Password</mat-label>
-                    <input matInput type="password" placeholder="Confirm Password" name="confirmPass" ngModel>
+
+            <div fxLayout="column" fxLayoutAlign="start" class="name">
+                <mat-form-field appearance="outline">
+                    <mat-label>Confirm</mat-label>
+                    <input matInput [type]="showPassword ? 'text' : 'password'" type="password" placeholder="Confirm"
+                        formControlName="confirmPassword" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" ng-model="passwordConfirm"
+                        match="password">
                 </mat-form-field>
+                <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                    <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                </div>
             </div>
             <div>
                 <section class="example-section">
-                    <mat-checkbox class="example-margin" id="pass">Show Password</mat-checkbox>
+                    <mat-checkbox class="example-margin" id="pass" name="showPassword" [(ngModel)]="showPassword"
+                        [ngModelOptions]="{standalone: true}">Show Password</mat-checkbox>
                 </section>
             </div>
             <div>
                 <div class="example-button-row" class="butn">
-                    <button mat-flat-button color="primary" style="float: right;" type="submit" value="submit">Change
+                    <button mat-flat-button color="primary" style="float: right;" type="submit">Change
                         Password</button>
                 </div>
             </div>

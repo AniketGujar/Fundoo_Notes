@@ -10,15 +10,15 @@ import { UserService } from '../../service/userservice/user.service'
 })
 export class ForgotPassComponent implements OnInit {
 
-  constructor(private snackBar: MatSnackBar, private userService:UserService) { }
+  constructor(private snackBar: MatSnackBar, private userService: UserService) { }
 
   ngOnInit(): void {
   }
 
-  onClickSubmit=(data)=>{
-    console.log("Email Id ",data)
-    this.userService.forgotPassword(data).subscribe((res)=>{
-      console.log("Message ",res)
+  onClickSubmit = (data) => {
+    console.log("Email Id ", data)
+    this.userService.forgotPassword(data).subscribe((res) => {
+      console.log("Message ", res)
     });
     this.openSnackBar("Check Your Email Id", "Email Sent");
   }

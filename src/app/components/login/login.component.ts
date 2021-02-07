@@ -9,6 +9,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class LoginComponent implements OnInit {
 
+  showPassword = false;
+
   constructor(private userService: UserService, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -25,8 +27,7 @@ export class LoginComponent implements OnInit {
       this.openSnackBar("Login Sucess..!!", "Done")
     },
       (error) => {
-        console.log('error caught in component', error)
-        console.log('Status', error.status);
+        console.log('Status', error);
         if (error.status == 401) {
           this.openSnackBar("Access Denied..!!", "Failed")
         }
