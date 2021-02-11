@@ -25,4 +25,8 @@ export class UserService {
     console.log(data)
     return this.httpService.encodedPost(url, data, token)
   }
+
+  getAllNotes =()=>{
+    return this.httpService.getNotes('notes/getNotesList')
+  }
 }

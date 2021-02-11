@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../service/userservice/user.service'
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   showPassword = false;
 
-  constructor(private userService: UserService, private snackBar: MatSnackBar) { }
+  constructor(private userService: UserService, private snackBar: MatSnackBar, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -23,8 +24,16 @@ export class LoginComponent implements OnInit {
       "service": "advance"
     }
     this.userService.login(loginData).subscribe((res) => {
-      console.log("Login Sucessful ", res)
-      this.openSnackBar("Login Sucess..!!", "Done")
+      console.log("Login Sucessfull ", res)
+
+      localStorage.setItem('token', res['id'])
+      localStorage.setItem('id', res['userId'])
+      localStorage.setItem('firstName', res['firstName'])
+      localStorage.setItem('lastName', res['lastName'])
+      localStorage.setItem('email', res['email'])
+
+      this.openSnackBar("Login Sucessfull..!!", "Close")
+      this.router.navigate(['dashboard']);
     },
       (error) => {
         console.log('Status', error);

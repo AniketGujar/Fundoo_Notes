@@ -11,7 +11,6 @@ export class HttpService {
   BaseUrl = environment.baseUrl
   constructor(private http: HttpClient) { }
 
-
   post = (url, data) => {
     return this.http.post(this.BaseUrl + url, data)
   }
@@ -33,5 +32,15 @@ export class HttpService {
       })
     }
     return this.http.post(this.BaseUrl + url, this.encode(data), options)
+  }
+
+  getNotes=(url)=>{
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('token'),
+        'Content-Type': 'application/x-www-form-urlencoded'
+      })
+    }
+    return this.http.get(this.BaseUrl+url,options)
   }
 }

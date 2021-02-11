@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -19,6 +18,20 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
 import { FormsModule } from '@angular/forms';
 import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { NotesComponent } from './components/notes/notes.component';
+import { RemindersComponent } from './components/reminders/reminders.component';
+import { LabelsComponent } from './components/labels/labels.component';
+import { ArchiveComponent } from './components/archive/archive.component';
+import { TrashComponent } from './components/trash/trash.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatMenuModule} from '@angular/material/menu';
+import { CreatenoteComponent } from './components/createnote/createnote.component';
+import { DisplaynotesComponent } from './components/displaynotes/displaynotes.component';
+import { IconComponent } from './components/icon/icon.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +39,16 @@ import { ResetPassComponent } from './components/reset-pass/reset-pass.component
     LoginComponent,
     RegisterComponent,
     ForgotPassComponent,
-    ResetPassComponent
+    ResetPassComponent,
+    DashboardComponent,
+    NotesComponent,
+    RemindersComponent,
+    LabelsComponent,
+    ArchiveComponent,
+    TrashComponent,
+    CreatenoteComponent,
+    DisplaynotesComponent,
+    IconComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +64,12 @@ import { ResetPassComponent } from './components/reset-pass/reset-pass.component
     ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatExpansionModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
