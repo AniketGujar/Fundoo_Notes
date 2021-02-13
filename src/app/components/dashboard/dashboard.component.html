@@ -15,19 +15,19 @@
         <h1 style="color: #34A853;">o</h1>
         <h1 style="color: #EA4335;">o</h1>
       </div>
-      <span class="example-spacer"></span>
+      <!-- <span class="example-spacer"></span> -->
     </div>
 
-    <div fxFlexLayout="row" fxLayoutAlign="space-between center" fxFlex=100 fxFlex.xs=10>
-      <div fxFlex=75>
+    <div fxFlexLayout="row" fxLayoutAlign="space-evenly center" fxFlex=100 fxFlex.xs=10>
+      <div fxFlex=65>
         <mat-form-field appearance="fill" class="search">
-          <!-- <mat-icon style="width: 10px; height: 10px;">search</mat-icon> -->
+          <!-- <mat-icon style="width: 10px; height: 10px;">search</mat-icon>-->
           <img src="../../../assets/images/search-black-18dp.svg" style="width: 20px;height: 20px;">
           <input matInput class="inSearch">
         </mat-form-field>
       </div>
 
-      <div fxFlex=20 fxFlexLayout="row" fxLayoutAlign="space-between center">
+      <div fxFlex fxFlexLayout="row" fxLayoutAlign="end center">
         <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
           <mat-icon>refresh</mat-icon>
         </button>
@@ -48,14 +48,13 @@
   </mat-toolbar>
 
   <mat-divider></mat-divider>
-
+  
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56">
-      <mat-nav-list style="width:200px;">
+      <mat-nav-list style="width:200px;" class="sideNav">
         <a mat-list-item routerLink='notes'>
-          <mat-icon class="icon">lightbulb</mat-icon>
-          Notes
+          <mat-icon class="icon">lightbulb</mat-icon> Notes
         </a>
         <a mat-list-item routerLink="reminders">
           <mat-icon class="icon">notifications_none</mat-icon> Reminders

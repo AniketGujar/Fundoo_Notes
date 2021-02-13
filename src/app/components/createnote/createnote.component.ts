@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {NotesServiceService} from '../../service/notesService/notes-service.service'
 
 @Component({
   selector: 'app-createnote',
@@ -8,8 +9,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class CreatenoteComponent implements OnInit {
 
-  constructor(private snackBar:MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar,private noteService:NotesServiceService) { }
 
+  title: String;
+  description: String;
+  
   ngOnInit(): void {
   }
   step = 0;
@@ -26,10 +30,24 @@ export class CreatenoteComponent implements OnInit {
     this.step--;
   }
 
-  openSnackBar=(message,action)=>{
+  openSnackBar = (message, action) => {
     this.snackBar.open(message, action, {
       duration: 3000,
     })
   }
 
+  addNote = () => {
+    let data = {
+      "title": this.title,
+      "description": this.description
+    }
+
+    this.noteService.createNote(data).subscribe((res)=>{
+      console.log("Note Added ",res)
+      
+    },
+    (error)=>{
+      console.log("Error in creating note ", error);
+    })
+  }
 }

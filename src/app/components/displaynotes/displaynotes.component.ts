@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import { CreatenoteComponent } from '../createnote/createnote.component';
 
 @Component({
   selector: 'app-displaynotes',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplaynotesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+    console.log("Notes Array ",this.notesArray)
   }
 
+  @Input()notesArray;
+
+  openDialog=(data)=>{
+    console.log(data);
+    this.dialog.open(CreatenoteComponent,{
+      width: '900px',})
+  }
 }

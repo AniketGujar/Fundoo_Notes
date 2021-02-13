@@ -5,8 +5,8 @@
             <mat-expansion-panel-header>
                 <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex>
                     <div fxFlex=85>
-                        <mat-panel-title>
-                            <input matInput placeholder="Title" autocomplete="off">
+                        <mat-panel-title >
+                            <input matInput placeholder="Title" autocomplete="off" [(ngModel)]="title">
                         </mat-panel-title>
                     </div>
 
@@ -29,14 +29,16 @@
             </mat-expansion-panel-header>
 
             <mat-panel-title>
-                <input matInput placeholder="Take a note..." autocomplete="off">
+                <input matInput placeholder="Take a note..." autocomplete="off" [(ngModel)]="description">
             </mat-panel-title>
 
             <mat-action-row>
                 <div fxLayout="row" fxFlex>
-                    <app-icon></app-icon>
+                    <div class="icon">
+                        <app-icon></app-icon>
+                    </div>
                     <div fxLayoutAlign="end center" fxFlex>
-                        <button mat-button color="primary" (click)="nextStep()">Close</button>
+                        <button mat-button color="primary" (click)="nextStep();addNote()">Close</button>
                     </div>
                 </div>
             </mat-action-row>

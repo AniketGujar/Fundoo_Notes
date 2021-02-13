@@ -27,11 +27,12 @@ import { RemindersComponent } from './components/reminders/reminders.component';
 import { LabelsComponent } from './components/labels/labels.component';
 import { ArchiveComponent } from './components/archive/archive.component';
 import { TrashComponent } from './components/trash/trash.component';
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatMenuModule } from '@angular/material/menu';
 import { CreatenoteComponent } from './components/createnote/createnote.component';
 import { DisplaynotesComponent } from './components/displaynotes/displaynotes.component';
 import { IconComponent } from './components/icon/icon.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { IconComponent } from './components/icon/icon.component';
     TrashComponent,
     CreatenoteComponent,
     DisplaynotesComponent,
-    IconComponent
+    IconComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +70,8 @@ import { IconComponent } from './components/icon/icon.component';
     MatSidenavModule,
     MatListModule,
     MatExpansionModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

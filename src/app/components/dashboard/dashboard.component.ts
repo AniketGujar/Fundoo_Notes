@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, OnDestroy} from '@angular/core';
-import { UserService } from '../../service/userservice/user.service'
 
 
 @Component({
@@ -15,7 +14,7 @@ export class DashboardComponent implements OnInit {
   note;
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private userService: UserService) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -26,14 +25,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.getAllNotes().subscribe((res)=>{
-      console.log("Get Notes ", res['data'].data);
-      this.note =res['data'].data;
-      console.log("NOTE ",this.note)
 
-    },(error)=>{
-      console.log("Get Notes ", error);
-    })
   }
 
 }

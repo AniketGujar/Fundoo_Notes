@@ -1,0 +1,20 @@
+mat-card {
+  width: 240px;
+  margin: 10px;
+  padding-bottom: 0px;
+}
+
+mat-card:hover {
+  border-style: solid;
+  border-width: thin;
+  border-color: #E0E0E0;
+  visibility: visible;
+}
+
+// .icon {
+//   visibility: hidden;
+// }
+
+// .icon:hover {
+//   display:none
+// }

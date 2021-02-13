@@ -6,8 +6,6 @@
     bottom: 0;
     left: 0;
     right: 0;
-    color: white;
-    padding: 0px 0px 8px 8px;
 }
 
 .example-is-mobile .example-toolbar {
@@ -55,4 +53,19 @@ h1.example-app-name {
 
 ::ng-deep .mat-form-field-underline {
     display: none;
+}
+
+.sideNav {
+    color: #4A4A4A;
+}
+
+.sideNav :hover{
+    color: #4A4A4A;
+    border-radius: 0px 30px 30px 0px;
+}
+
+.sideNav :focus{
+    color: #4A4A4A;
+    background-color: #FEEFC3;
+    border-radius: 0px 30px 30px 0px;
 }
