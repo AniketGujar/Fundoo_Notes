@@ -4,17 +4,10 @@ mat-card {
   padding-bottom: 0px;
 }
 
-mat-card:hover {
-  border-style: solid;
-  border-width: thin;
-  border-color: #E0E0E0;
+mat-card:hover .icon{
   visibility: visible;
 }
 
-// .icon {
-//   visibility: hidden;
-// }
-
-// .icon:hover {
-//   display:none
-// }
+.icon {
+  visibility: hidden;
+}

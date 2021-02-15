@@ -15,4 +15,16 @@ export class NotesServiceService {
   createNote=(data)=>{
     return this.httpService.create('notes/addNotes',data)
   }
+
+  arhiveNotes=()=>{
+    return this.httpService.getNotes('notes/getArchiveNotesList')
+  }
+
+  postArchive=(data)=>{
+    return this.httpService.archive('/notes/archiveNotes',data)
+  }
+
+  updateNote=(data)=>{
+    return this.httpService.update('/notes/updateNotes',data)
+  }
 }

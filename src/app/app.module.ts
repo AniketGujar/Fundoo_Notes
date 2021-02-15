@@ -33,6 +33,7 @@ import { CreatenoteComponent } from './components/createnote/createnote.componen
 import { DisplaynotesComponent } from './components/displaynotes/displaynotes.component';
 import { IconComponent } from './components/icon/icon.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { UpdateComponent } from './components/update/update.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     CreatenoteComponent,
     DisplaynotesComponent,
     IconComponent,
+    UpdateComponent,
   ],
   imports: [
     BrowserModule,

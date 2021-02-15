@@ -1,5 +1,5 @@
 <mat-accordion class="example-headers-align" style="width: 100%;" fxLayout="row" fxLayoutAlign="center">
-    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle fxFlex=50>
+    <mat-expansion-panel>
 
         <mat-expansion-panel-header>
             <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex>
@@ -35,7 +35,7 @@
                     <app-icon></app-icon>
                 </div>
                 <div fxLayoutAlign="end center" fxFlex>
-                    <button mat-button color="primary" (click)="nextStep();addNote()">Close</button>
+                    <button mat-button color="primary" (click)="update();">Close</button>
                 </div>
             </div>
         </mat-action-row>

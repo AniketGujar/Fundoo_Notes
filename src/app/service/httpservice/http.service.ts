@@ -53,4 +53,24 @@ export class HttpService {
     }
     return this.http.post(this.BaseUrl+url,data,options)
   }
+
+  archive=(url,data)=>{
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('token'),
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.post(this.BaseUrl+url,data,options)
+  }
+
+  update=(url,data)=>{
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('token'),
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.post(this.BaseUrl+url,data,options)
+  }
 }

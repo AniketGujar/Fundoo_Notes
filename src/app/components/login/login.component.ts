@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('email', res['email'])
 
       this.openSnackBar("Login Sucessfull..!!", "Close")
-      this.router.navigate(['dashboard']);
+      this.router.navigate(['dashboard/notes']);
     },
       (error) => {
         console.log('Status', error);

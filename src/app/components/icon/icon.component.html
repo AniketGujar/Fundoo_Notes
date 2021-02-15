@@ -1,34 +1,35 @@
-<div>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>add_alert</mat-icon>
+<div fxLayout="row" fxLayoutAlign="start center" class="icons">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <img src="../../../assets/images/add_alert-black-18dp.svg">
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <img src="../../../assets/images/person_add_alt-24px.svg">
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <img src="../../../assets/images/color_lens-24px.svg">
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <img src="../../../assets/images/insert_photo-24px.svg">
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
+    (click)="openSnackBar('Note archived','Undo')">
+    <img src="../../../assets/images/archive-24px.svg">
+  </button>
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <img src="../../../assets/images/more_vert-24px.svg">
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <span>Add label</span>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>person_add_alt</mat-icon>
+    <button mat-menu-item>
+      <span>Add drawing</span>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>palette</mat-icon>
+    <button mat-menu-item>
+      <span>Show checkboxes</span>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>insert_photo</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="openSnackBar('Note archived','Undo')">
-        <mat-icon>archive</mat-icon>
-    </button>
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-        <mat-icon>more_vert</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <span>Add label</span>
-        </button>
-        <button mat-menu-item>
-          <span>Add drawing</span>
-        </button>
-        <button mat-menu-item>
-          <span>Show checkboxes</span>
-        </button>
-      </mat-menu>
-    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+  </mat-menu>
+  <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
         <mat-icon>undo</mat-icon>
     </button>
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
