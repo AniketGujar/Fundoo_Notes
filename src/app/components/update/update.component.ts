@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { NotesServiceService } from 'src/app/service/notesService/notes-service.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogData } from '../displaynotes/displaynotes.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update',
@@ -7,25 +10,39 @@ import { NotesServiceService } from 'src/app/service/notesService/notes-service.
   styleUrls: ['./update.component.scss']
 })
 export class UpdateComponent implements OnInit {
+  noteData;
+  constructor(private router: Router,private noteService: NotesServiceService, public dialogRef: MatDialogRef<UpdateComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    this.title = data.title;
+    this.description = data.description;
+    this.noteData=data;
+  }
 
-  constructor(private noteService:NotesServiceService) { }
-
-  title:String;
-  description:String;
-  id:String;
+  title: String;
+  description: String;
+  id: String;
 
   ngOnInit(): void {
   }
 
-  update=()=>{
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
+  }
+
+  update = () => {
     let data = {
-      noteId: this.id,
+      noteId: this.noteData.id,
       title: this.title,
       description: this.description,
     }
+    console.log("updateData: ",data)
 
     this.noteService.updateNote(data).subscribe((response) => {
-      console.log(" Updated Note Sucessfull", response);
+      console.log(" Updated Note Sucessfully", response);
     })
   }
 }

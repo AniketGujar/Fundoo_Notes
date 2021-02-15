@@ -1,18 +1,17 @@
-<div fxFlex fxLayout="row wrap" fxLayoutAlign="space-around start">
+<div fxFlex="grow" fxLayout="row wrap" fxLayoutAlign="space-around start">
     <mat-card *ngFor="let card of notesArray, let i = index">
-        <div (click)="openDialog(card)" *ngIf="notesArray[notesArray.length-i-1] as advert">
+        <div (click)="openDialog(card)" >
             <div>
-                {{advert.title}}
+                <div>
+                    {{card.title}}
+                </div>
+                <div>
+                    {{card.description}}
+                </div>
             </div>
-            <div>
-                {{advert.description}}
-            </div>
-            <!-- <div mat-card-image>
-                {{card.imageUrl}}
-            </div> -->
         </div>
         <div class="icon" >
-            <app-icon></app-icon>
+            <app-icon (click)="cardData(card)"></app-icon>
         </div>
     </mat-card>
 </div>

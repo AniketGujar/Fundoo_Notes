@@ -12,18 +12,18 @@
     <img src="../../../assets/images/insert_photo-24px.svg">
   </button>
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
-    (click)="openSnackBar('Note archived','Undo')">
+  (click)="getId('archive')">
     <img src="../../../assets/images/archive-24px.svg">
   </button>
   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
     <img src="../../../assets/images/more_vert-24px.svg">
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <span>Add label</span>
+    <button mat-menu-item (click)="getId('trash')">
+      <span>Trash</span>
     </button>
     <button mat-menu-item>
-      <span>Add drawing</span>
+      <span>Delete Forever (click)="getId('delete')"</span>
     </button>
     <button mat-menu-item>
       <span>Show checkboxes</span>

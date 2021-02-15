@@ -12,6 +12,7 @@ export class NotesComponent implements OnInit {
   constructor(private snackBar: MatSnackBar, private noteService: NotesServiceService) { }
 
   notes;
+  originalNotes;
   ngOnInit(): void {
     this.getAllNotes();
   }
@@ -38,7 +39,13 @@ export class NotesComponent implements OnInit {
   getAllNotes = () => {
     this.noteService.getAllNotes().subscribe((res) => {
       console.log("Get Notes ", res['data'].data);
-      this.notes = res['data'].data;
+      this.originalNotes = res['data'].data;
+      this.notes=this.originalNotes.filter((note)=>{
+        if(note.isDeleted==false && note.isArchived==false){
+          return note;
+        }
+      })
+      this.notes.reverse();
     }, (error) => {
       console.log("Get Notes ", error);
     })

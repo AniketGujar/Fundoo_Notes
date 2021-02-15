@@ -21,10 +21,18 @@ export class NotesServiceService {
   }
 
   postArchive=(data)=>{
-    return this.httpService.archive('/notes/archiveNotes',data)
+    return this.httpService.archive('notes/archiveNotes',data)
   }
 
   updateNote=(data)=>{
-    return this.httpService.update('/notes/updateNotes',data)
+    return this.httpService.update('notes/updateNotes',data)
+  }
+
+  trashNotes=()=>{
+    return this.httpService.getNotes('notes/getTrashNotesList')
+  }
+
+  postTrash=(data)=>{
+    return this.httpService.update('notes/trashNotes',data)
   }
 }

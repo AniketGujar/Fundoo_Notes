@@ -43,7 +43,6 @@ export class CreatenoteComponent implements OnInit {
     let data = {
       "title": this.title,
       "description": this.description
-      // "isArchived":true
     }
 
     this.noteService.createNote(data).subscribe((res) => {

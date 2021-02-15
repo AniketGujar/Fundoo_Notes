@@ -1,6 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { UpdateComponent } from '../update/update.component';
+
+export interface DialogData {
+  title: string;
+  description: string;
+}
 
 @Component({
   selector: 'app-displaynotes',
@@ -8,27 +13,27 @@ import { UpdateComponent } from '../update/update.component';
   styleUrls: ['./displaynotes.component.scss']
 })
 export class DisplaynotesComponent implements OnInit {
+  title: String;
+  description: String;
 
   constructor(public dialog: MatDialog) { }
 
-  title:String;
-  description:String;
-  
   ngOnInit(): void {
-    console.log("Notes Array ",this.notesArray)
+    console.log("Notes Array ", this.notesArray)
   }
 
-  @Input()notesArray;
+  @Input() notesArray;
 
-  openDialog=(data)=>{
-    console.log(data);
-    const dialogRef = this.dialog.open(UpdateComponent,{
+  openDialog = (data) => {
+    console.log("Data in display ",data);
+    this.dialog.open(UpdateComponent, {
       width: '600px',
-      data: { title: "ANdasdas", description:"Gadsdas"}
+      data: data
     })
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    //   this.notesArray.title = result;
-    // });
+  }
+
+  cardData=(card)=>{
+    localStorage.setItem('card',card.id);
+    console.log("Card ID ", card.id);
   }
 }
