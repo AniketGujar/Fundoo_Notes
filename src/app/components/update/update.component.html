@@ -1,29 +1,19 @@
-<mat-accordion class="example-headers-align" fxLayout="row" fxLayoutAlign="center" fxFill>
-    <mat-expansion-panel [expanded]="1">
-     
-            <mat-expansion-panel-header>
-                <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex>
-                    <div fxFlex>
-                        <mat-panel-title>
-                            <input matInput placeholder="Title" [(ngModel)]="title">
-                        </mat-panel-title>
-                    </div>
-                </div>
-            </mat-expansion-panel-header>
-    
-            <mat-panel-title>
-                <input matInput placeholder="Take a note..." autocomplete="off" [(ngModel)]="description">
-            </mat-panel-title>
-    
-            <mat-action-row>
-                <div fxLayout="row" fxFlex>
-                    <div class="icon">
-                        <app-icon></app-icon>
-                    </div>
-                    <div fxLayoutAlign="end center" fxFlex>
-                        <button mat-button color="primary" (click)="update();closeDialog()">Close</button>
-                    </div>
-                </div>
-            </mat-action-row>
-    </mat-expansion-panel>
-</mat-accordion>
+<div fxLayout="column" fxFlex>
+    <div>
+        <div fxLayout="column" fxLayoutAlign="space-evenly start">
+            <input matInput placeholder="Title" [(ngModel)]="title">
+        </div>
+        <div>
+            <input matInput placeholder="Take a note..." autocomplete="off" [(ngModel)]="description">
+        </div>
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxFlex>
+        <div fxFlex=75>
+            <app-icon></app-icon>
+        </div> 
+        <div fxLayoutAlign="end center" fxFlex>
+            <button mat-button color="primary" (click)="update();closeDialog()">Close</button>
+        </div>
+    </div>
+</div>

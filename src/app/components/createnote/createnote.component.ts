@@ -59,4 +59,10 @@ export class CreatenoteComponent implements OnInit {
     this.title = "";
     this.description = "";
   }
+
+  isShown: boolean = false;
+
+  toggleShow() {
+    this.isShown = !this.isShown;
+  }
 }

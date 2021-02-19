@@ -1,43 +1,35 @@
-<mat-accordion class="example-headers-align" style="width: 100%;" fxLayout="row" fxLayoutAlign="center">
-    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle fxFlex=50>
-
-        <mat-expansion-panel-header>
-            <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex>
-                <div fxFlex=85>
-                    <mat-panel-title>
-                        <input matInput placeholder="Title" autocomplete="off" [(ngModel)]="title">
-                    </mat-panel-title>
-                </div>
-
-                <div fxFlex>
-                    <mat-panel-description>
-                        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-                            <mat-icon>library_add_check</mat-icon>
-                        </button>
-                        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-                            <mat-icon>brush</mat-icon>
-                        </button> <button mat-icon-button class="example-icon"
-                            aria-label="Example icon-button with share icon">
-                            <mat-icon>insert_photo</mat-icon>
-                        </button>
-                    </mat-panel-description>
-                </div>
+<mat-card fxLayout="column" class="display">
+    <div>
+        <div>
+            <div fxLayoutAlign="space-evenly start" class="search" *ngIf="isShown">
+                <input matInput placeholder="Title" [(ngModel)]="title" autocomplete="off">
             </div>
-        </mat-expansion-panel-header>
-
-        <mat-panel-title>
-            <input matInput placeholder="Take a note..." autocomplete="off" [(ngModel)]="description">
-        </mat-panel-title>
-
-        <mat-action-row>
-            <div fxLayout="row" fxFlex>
-                <div class="icon">
-                    <app-icon></app-icon>
-                </div>
-                <div fxLayoutAlign="end center" fxFlex>
-                    <button mat-button color="primary" (click)="nextStep();addNote()">Close</button>
-                </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex=75 class="search">
+                <input matInput placeholder="Take a note..." autocomplete="off" [(ngModel)]="description"
+                    (click)="toggleShow()">
             </div>
-        </mat-action-row>
-    </mat-expansion-panel>
-</mat-accordion>
+            <div fxLayout="row" *ngIf="!isShown">
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                    <mat-icon>library_add_check</mat-icon>
+                </button>
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                    <mat-icon>brush</mat-icon>
+                </button>
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                    <mat-icon>insert_photo</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" *ngIf="isShown">
+        <div fxLayoutAlign="start start" fxFlex=90>
+            <app-icon></app-icon>
+        </div>
+        <div fxLayoutAlign="end start">
+            <button mat-button color="primary" (click)="nextStep();addNote()">Close</button>
+        </div>
+    </div>
+</mat-card>

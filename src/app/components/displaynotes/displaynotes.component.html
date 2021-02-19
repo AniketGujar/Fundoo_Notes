@@ -1,4 +1,4 @@
-<div fxFlex="grow" fxLayout="row wrap" fxLayoutAlign="space-around start">
+<div fxFlex="grow" fxLayout="row wrap" fxLayoutGap fxLayoutAlign="space-evenly start">
     <mat-card *ngFor="let card of notesArray, let i = index">
         <div (click)="openDialog(card)" >
             <div>

@@ -1,6 +1,6 @@
-.example-headers-align {
-    margin-top: 30px;
-    padding-bottom: 20px;
+.search {
+    margin-top: 10px;
+    padding-bottom: 10px;
 }
 
 .icon {
@@ -8,15 +8,33 @@
     padding-top: 0px;
 }
 
-.mat-action-row {
-    border-top: none;
-    padding: 0px;
-    margin: 0px 4px 0px 4px;
+// .mat-action-row {
+//     border-top: none;
+//     padding: 0px;
+//     margin: 0px 4px 0px 4px;
+// }
+
+// @media screen and (max-width: 800px) {
+//     .mat-accordion {
+//         width: 100%;
+//     }
+// }
+
+// .topDiv {
+//     margin-top: 30px;
+//     padding-bottom: 20px;
+// }
+
+.display{
+    margin-top: 20px;
+    margin: auto;
+    padding:10px 10px 0px 24px;
+    width:600px;
 }
 
-@media screen and (max-width: 800px) {
-    .mat-accordion {
-      width: 100%;
-      
+@media screen and (max-width:500px){
+    .display{
+        padding:10px 10px 0px 24px;
+        width:auto;
     }
-  }
+}

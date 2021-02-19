@@ -43,6 +43,7 @@ export class UpdateComponent implements OnInit {
 
     this.noteService.updateNote(data).subscribe((response) => {
       console.log(" Updated Note Sucessfully", response);
+      this.router.navigate(['/dashboard/notes']);
     })
   }
 }

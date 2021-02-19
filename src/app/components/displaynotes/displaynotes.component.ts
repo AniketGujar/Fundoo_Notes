@@ -27,7 +27,7 @@ export class DisplaynotesComponent implements OnInit {
   openDialog = (data) => {
     console.log("Data in display ",data);
     this.dialog.open(UpdateComponent, {
-      width: '600px',
+      width: 'auto',
       data: data
     })
   }
