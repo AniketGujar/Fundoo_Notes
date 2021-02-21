@@ -1,8 +1,13 @@
 <mat-card fxLayout="column" class="display">
     <div>
-        <div>
-            <div fxLayoutAlign="space-evenly start" class="search" *ngIf="isShown">
+        <div *ngIf="isShown" fxLayout="row">
+            <div fxLayoutAlign="space-evenly start" fxFlex=90 class="search">
                 <input matInput placeholder="Title" [(ngModel)]="title" autocomplete="off">
+            </div>
+            <div fxLayoutAlign=" center">
+                <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                    <img src="../../../assets/images/push_pin-24px.svg">
+                </button>
             </div>
         </div>
         <div fxLayout="row">

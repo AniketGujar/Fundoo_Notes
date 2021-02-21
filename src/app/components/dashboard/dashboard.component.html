@@ -7,7 +7,7 @@
         <mat-icon>menu</mat-icon>
       </button>
       <img src="../../../assets/images/keep_2020q4_48dp.png" class="keepLogo">
-      <div fxLayout="row">
+      <div fxLayout="row" class="name">
         <h1 style="color: #4285F4;">F</h1>
         <h1 style="color: #EA4335;">u</h1>
         <h1 style="color: #FBBC04;">n</h1>
@@ -17,30 +17,44 @@
       </div>
     </div>
 
-    <div fxFlexLayout="row" fxLayoutAlign="start" fxFlex=100 fxFlex.xs=10>
+    <div fxFlexLayout="row" fxLayoutAlign="start" fxFlex=100 fxFlex.xs=20>
       <div fxFlex=65 class="searchDiv">
         <mat-form-field appearance="fill" [style.fontSize.px]="12">
           <img src="../../../assets/images/search-black-18dp.svg">
-          <input matInput class="inSearch" >
+          <input matInput class="inSearch" autocomplete="none">
         </mat-form-field>
       </div>
 
       <div fxFlex fxFlexLayout="row" fxLayoutAlign="end center">
-        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-          <mat-icon routerLink="notes">refresh</mat-icon>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="refresh()">
+          <img src="../../../assets/images/refresh-24px.svg">
         </button>
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-          <mat-icon>view_stream</mat-icon>
+          <img src="../../../assets/images/view_stream-24px.svg">
         </button>
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-          <mat-icon>settings</mat-icon>
+          <img src="../../../assets/images/settings-24px.svg">
         </button>
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-          <mat-icon>apps</mat-icon>
+          <img src="../../../assets/images/apps-24px.svg">
         </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-          <mat-icon>account_circle</mat-icon>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
+          [matMenuTriggerFor]="matMenuProfile">
+          <img mat-card-avatar src="../../../assets/images/unnamed.jpg" style="width: 30px; height: 30px;">
         </button>
+        <mat-menu #matMenuProfile="matMenu" class="my-class">
+          <div fxLayout="row" fxLayoutAlign="center center">
+            <img mat-card-avatar src="../../../assets/images/unnamed.jpg" style="width: 80px; height: 80px;" (click)="openDialog()">
+          </div>
+          <div fxLayout="column" fxLayoutAlign="center center">
+            <h2>
+              {{fName}} {{lName}}
+            </h2>
+            <h3>
+              {{email}}
+            </h3>
+          </div>
+        </mat-menu>
       </div>
     </div>
   </mat-toolbar>
@@ -69,7 +83,6 @@
 
       </mat-nav-list>
     </mat-sidenav>
-
     <router-outlet></router-outlet>
   </mat-sidenav-container>
 </div>

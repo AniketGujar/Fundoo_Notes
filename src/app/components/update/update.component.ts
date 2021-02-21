@@ -21,6 +21,7 @@ export class UpdateComponent implements OnInit {
   title: String;
   description: String;
   id: String;
+  color:String="#ffffff";
 
   ngOnInit(): void {
   }
@@ -34,6 +35,11 @@ export class UpdateComponent implements OnInit {
   }
 
   update = () => {
+    console.log(localStorage.getItem('color'))
+    if(localStorage.getItem('color')){
+      this.color=localStorage.getItem('color');
+      localStorage.removeItem('color');
+    }
     let data = {
       noteId: this.noteData.id,
       title: this.title,

@@ -15,7 +15,8 @@ export class CreatenoteComponent implements OnInit {
 
   title: String;
   description: String;
-
+  color:String="";
+    
   ngOnInit(): void {
 
   }
@@ -40,9 +41,14 @@ export class CreatenoteComponent implements OnInit {
   }
 
   addNote = () => {
+    if(localStorage.getItem('color')){
+      this.color=localStorage.getItem('color');
+      localStorage.removeItem('color');
+    }
     let data = {
       "title": this.title,
-      "description": this.description
+      "description": this.description,
+      "color":this.color
     }
 
     this.noteService.createNote(data).subscribe((res) => {

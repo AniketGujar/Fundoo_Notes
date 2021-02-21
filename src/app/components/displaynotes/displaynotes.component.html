@@ -1,6 +1,6 @@
-<div fxFlex="grow" fxLayout="row wrap" fxLayoutGap fxLayoutAlign="space-evenly start">
-    <mat-card *ngFor="let card of notesArray, let i = index">
-        <div (click)="openDialog(card)" >
+<div fxFlex="grow" fxLayout="row wrap" fxLayoutAlign="center start" fxLayoutGap >
+    <mat-card *ngFor="let card of notesArray, let i = index" [style.background-color]=card.color>
+        <div (click)="cardData(card);openDialog(card)">
             <div>
                 <div>
                     {{card.title}}

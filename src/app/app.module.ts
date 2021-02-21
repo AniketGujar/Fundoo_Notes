@@ -34,6 +34,9 @@ import { DisplaynotesComponent } from './components/displaynotes/displaynotes.co
 import { IconComponent } from './components/icon/icon.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UpdateComponent } from './components/update/update.component';
+import { CollaboratorComponent } from './components/collaborator/collaborator.component';
+import { ProfilepicComponent } from './components/profilepic/profilepic.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -52,6 +55,8 @@ import { UpdateComponent } from './components/update/update.component';
     DisplaynotesComponent,
     IconComponent,
     UpdateComponent,
+    CollaboratorComponent,
+    ProfilepicComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +78,8 @@ import { UpdateComponent } from './components/update/update.component';
     MatListModule,
     MatExpansionModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    ImageCropperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,35 @@
+<div class="profile">
+    <div>
+        <h1 style="margin-bottom: 0px;">
+            Select Profile Photo
+        </h1>
+        <mat-divider></mat-divider>
+        <h2>
+            Upload a photo
+        </h2>
+    </div>
+    <div>
+        <input type="file" (change)="fileChangeEvent($event)" />
+
+        <div fxLayout="row" fxLayoutAlign="space-between start">
+            <div>
+                <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4 / 4 "
+                [resizeToWidth]="256" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+                (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+            </div>
+    
+            <div>
+                <img [src]="croppedImage" />
+            </div>
+        </div>
+        
+    </div>
+    <div>
+        <button>
+            Set as profile photo
+        </button>
+        <button>
+            Close
+        </button>
+    </div>
+</div>

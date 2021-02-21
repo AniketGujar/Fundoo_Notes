@@ -35,4 +35,8 @@ export class NotesServiceService {
   postTrash=(data)=>{
     return this.httpService.update('notes/trashNotes',data)
   }
+
+  colorChange=(data)=>{
+    return this.httpService.update('notes/changesColorNotes',data)
+  }
 }
