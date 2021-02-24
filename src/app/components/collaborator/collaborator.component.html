@@ -1,1 +1,33 @@
-<p>collaborator works!</p>
+<h2>Collaborators</h2>
+<mat-divider></mat-divider>
+
+<div fxLayout="row">
+    <div class="user">
+        <img mat-card-avatar [src]='imageUrl'>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center start" style="margin-left: 15px;">
+        {{userName}} (owner)
+        <div> 
+            {{userEmail}}
+        </div>
+    </div>
+</div>
+
+<div fxLayout="row">
+    <div class="user">
+        <img mat-card-avatar src="../../../assets/images/person_add_alt-24px.svg" style='width: 30px;height: 30px;'>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="center start" style="margin-left: 15px;">
+        <mat-form-field class="example-form-field">
+            <input matInput type="text" [(ngModel)]="value" placeholder="Person or Email id to share with">
+            <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+    </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="end end" class="btn">
+    <button mat-button>Cancel</button>
+    <button mat-button (click)="collaborator()">Save</button>
+</div>

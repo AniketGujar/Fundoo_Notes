@@ -19,7 +19,6 @@ export class DisplaynotesComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    console.log("Notes Array ", this.notesArray)
   }
 
   @Input() notesArray;

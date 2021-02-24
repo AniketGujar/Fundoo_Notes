@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ArchiveComponent } from './archive.component';
+import { NotesServiceService } from '../../service/notesService/notes-service.service';
+import { HttpService } from '../../service/httpservice/http.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ArchiveComponent', () => {
   let component: ArchiveComponent;
@@ -8,7 +10,13 @@ describe('ArchiveComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ArchiveComponent ]
+      declarations: [ ArchiveComponent ],
+      imports:[
+        HttpClientTestingModule
+      ],
+      providers:[
+        NotesServiceService,HttpService
+      ]
     })
     .compileComponents();
   });

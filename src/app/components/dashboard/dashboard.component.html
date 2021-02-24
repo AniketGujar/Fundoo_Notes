@@ -40,11 +40,11 @@
         </button>
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
           [matMenuTriggerFor]="matMenuProfile">
-          <img mat-card-avatar src="../../../assets/images/unnamed.jpg" style="width: 30px; height: 30px;">
+          <img mat-card-avatar [src]="imageUrl" style="width: 30px; height: 30px;">
         </button>
         <mat-menu #matMenuProfile="matMenu" class="my-class">
           <div fxLayout="row" fxLayoutAlign="center center">
-            <img mat-card-avatar src="../../../assets/images/unnamed.jpg" style="width: 80px; height: 80px;" (click)="openDialog()">
+            <img mat-card-avatar [src]="imageUrl" style="width: 80px; height: 80px;" (click)="openDialog()">
           </div>
           <div fxLayout="column" fxLayoutAlign="center center">
             <h2>

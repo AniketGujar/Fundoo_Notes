@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { ResetPassComponent } from './reset-pass.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from "@angular/router/testing";
+import { UserService } from '../../service/userservice/user.service'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
 
 describe('ResetPassComponent', () => {
   let component: ResetPassComponent;
@@ -8,9 +13,11 @@ describe('ResetPassComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ResetPassComponent ]
+      declarations: [ResetPassComponent],
+      imports: [HttpClientModule, ReactiveFormsModule, RouterTestingModule, MatSnackBarModule, FormsModule],
+      providers: [UserService]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -22,8 +22,11 @@ export class UserService {
 
   resetPassword = (token, data) => {
     let url = 'user/reset-password';
-    console.log(data)
     return this.httpService.encodedPost(url, data, token)
+  }
+
+  image=(data)=>{
+    return this.httpService.setImage('user/uploadProfileImage',data)
   }
 
 }

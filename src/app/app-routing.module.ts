@@ -10,15 +10,18 @@ import { RegisterComponent } from './components/register/register.component';
 import { RemindersComponent } from './components/reminders/reminders.component';
 import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
 import { TrashComponent } from './components/trash/trash.component';
+import { AuthenticationGuard } from './authentication.guard'
 
 const routes: Routes = [
+  { path: '', redirectTo: "/register", pathMatch: 'full' },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'forgotPassword', component: ForgotPassComponent },
   { path: 'resetpassword/:token', component: ResetPassComponent },
   {
-    path: 'dashboard', component: DashboardComponent,
+    path: 'dashboard', component: DashboardComponent, canActivate: [AuthenticationGuard],
     children: [
+      { path: '', redirectTo: "notes", pathMatch: 'full' },
       { path: 'notes', component: NotesComponent },
       { path: 'reminders', component: RemindersComponent },
       { path: 'labels', component: LabelsComponent },

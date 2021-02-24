@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
-import { ProfilepicComponent } from '../profilepic/profilepic.component'
+import { ChangeDetectorRef } from '@angular/core';
+import { ProfilepicComponent } from '../profilepic/profilepic.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
@@ -17,10 +16,11 @@ export class DashboardComponent implements OnInit {
   fName = localStorage.getItem('firstName');
   lName = localStorage.getItem('lastName');
   email = localStorage.getItem('email');
+  imageUrl;
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private router: Router, public dialog: MatDialog) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public dialog: MatDialog) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.navigate(['/dashboard/notes'])
+    this.profilePic();
   }
 
   openDialog() {
@@ -43,11 +43,15 @@ export class DashboardComponent implements OnInit {
   }
 
   openProfileDialog(): void {
-    this.dialog.open(ProfilepicComponent, {
+    let dialogRef = this.dialog.open(ProfilepicComponent, {
       height: '700px',
-      width:'1200px'
+      width: '1200px'
     });
   }
 
+  profilePic = () => {
+    let url = localStorage.getItem('image')
+    this.imageUrl = 'http://fundoonotes.incubation.bridgelabz.com/' + url;
+  }
 }
 

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from '../../service/userservice/user.service'
 
-
 @Component({
   selector: 'app-forgot-pass',
   templateUrl: './forgot-pass.component.html',

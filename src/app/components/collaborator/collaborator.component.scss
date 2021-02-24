@@ -1,0 +1,27 @@
+.user {
+    margin-top: 10px;
+    padding-right: 24px;
+    padding-left: 24px;
+}
+
+h2 {
+    margin-top: -10px;
+    margin-bottom: 10px;
+    padding-right: 24px;
+    padding-left: 24px;
+}
+
+.example-form-field {
+    width: 300px;
+}
+
+::ng-deep .mat-dialog-container {
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+}
+
+.btn {
+    background-color: #EDEDED;
+    padding: 10px;
+}

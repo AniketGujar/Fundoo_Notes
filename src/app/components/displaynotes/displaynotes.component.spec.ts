@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatDialog } from '@angular/material/dialog';
 import { DisplaynotesComponent } from './displaynotes.component';
+import { UpdateComponent } from '../update/update.component';
+import { OverlayModule } from '@angular/cdk/overlay';
+import {MatDialogModule} from '@angular/material/dialog';
 
 describe('DisplaynotesComponent', () => {
   let component: DisplaynotesComponent;
@@ -8,9 +11,11 @@ describe('DisplaynotesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DisplaynotesComponent ]
+      declarations: [DisplaynotesComponent],
+      providers: [MatDialog, UpdateComponent],
+      imports: [OverlayModule,MatDialogModule]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

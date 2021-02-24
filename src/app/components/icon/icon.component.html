@@ -2,27 +2,31 @@
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
     <img src="../../../assets/images/add_alert-black-18dp.svg">
   </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="openCollaboratorDialog()">
     <img src="../../../assets/images/person_add_alt-24px.svg">
   </button>
   <button mat-icon-button class="example-icon" aria-label="Change color" [matMenuTriggerFor]="matMenuChangeColor">
     <img src="../../../assets/images/color_lens-24px.svg">
   </button>
   <mat-menu #matMenuChangeColor="matMenu">
-    <div fxLayout="column" fxLayoutAlign="space-between start">
-      <div fxLayout="row" fxLayoutAlign="space-between start">
+    <div fxLayout="column" fxLayoutAlign="start" class="butn">
+      <div fxLayout="row" fxLayoutAlign=" start">
         <button mat-mini-fab style="background-color: #FFFFFF;" (click)="getId('#FFFFFF')"></button>
         <button mat-mini-fab style="background-color: #fff475;" (click)="getId('#fff475')"></button>
         <button mat-mini-fab style="background-color: #f28b82;" (click)="getId('#f28b82')"></button>
         <button mat-mini-fab style="background-color: #fbbc04;" (click)="getId('#fbbc04')"></button>
-        <button mat-mini-fab style="background-color: #ccff90;" (click)="getId('#ccff90')"></button>
       </div>
       <div>
         <button mat-mini-fab style="background-color: #a7ffeb;" (click)="getId('#a7ffeb')"></button>
         <button mat-mini-fab style="background-color: #cbf0f8;" (click)="getId('#cbf0f8')"></button>
         <button mat-mini-fab style="background-color: #d7aefb;" (click)="getId('#d7aefb')"></button>
         <button mat-mini-fab style="background-color: #fdcfe8;" (click)="getId('#fdcfe8')"></button>
+      </div>
+      <div>
+        <button mat-mini-fab style="background-color: #ccff90;" (click)="getId('#ccff90')"></button>
         <button mat-mini-fab style="background-color: #e6c9a8;" (click)="getId('#e6c9a8')"></button>
+        <button mat-mini-fab style="background-color: #E8EAED;" (click)="getId('#E8EAED')"></button>
+        <button mat-mini-fab style="background-color: #AECBFA;" (click)="getId('#AECBFA')"></button>
       </div>
     </div>
   </mat-menu>
@@ -41,7 +45,7 @@
       <span>Trash</span>
     </button>
     <button mat-menu-item>
-      <span>Delete Forever (click)="getId('delete')"</span>
+      <span>Delete Forever</span>
     </button>
     <button mat-menu-item>
       <span>Show checkboxes</span>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { NotesServiceService } from 'src/app/service/notesService/notes-service.service';
+import { CollaboratorComponent } from '../collaborator/collaborator.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-icon',
@@ -10,7 +11,7 @@ import { NotesServiceService } from 'src/app/service/notesService/notes-service.
 })
 export class IconComponent implements OnInit {
 
-  constructor(private snackBar: MatSnackBar, private router: Router, private noteService: NotesServiceService) { }
+  constructor(private snackBar: MatSnackBar, private noteService: NotesServiceService, public dialog: MatDialog) { }
 
   color: string = "#FFFFFF";
 
@@ -30,8 +31,8 @@ export class IconComponent implements OnInit {
         this.trashNote(card);
       } else if (val == "delete") {
         this.deleteNote(card);
-      } else{
-        this.changeColor(val,card)
+      } else {
+        this.changeColor(val, card)
       }
       setTimeout(() => {
         localStorage.removeItem('card');
@@ -86,7 +87,7 @@ export class IconComponent implements OnInit {
     })
   }
 
-  changeColor(color,card) {
+  changeColor(color, card) {
     this.color = color;
     console.log(this.color);
     localStorage.setItem('color', this.color);
@@ -101,5 +102,12 @@ export class IconComponent implements OnInit {
     }, (error) => {
       console.log("Color change failed", error);
     })
+  }
+
+  openCollaboratorDialog(): void {
+    let dialogRef = this.dialog.open(CollaboratorComponent, {
+      height: 'auto',
+      width: '550px'
+    });
   }
 }

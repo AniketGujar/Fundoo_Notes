@@ -1,4 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 import { LoginComponent } from './login.component';
 
@@ -8,14 +11,19 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports:[MatSnackBarModule, 
+      HttpClientModule,
+      Router,
+
+    ],
       declarations: [ LoginComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    const fixture = TestBed.createComponent(LoginComponent);
-    const component = fixture.componentInstance;
+    fixture = TestBed.createComponent(LoginComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 

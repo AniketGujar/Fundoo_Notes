@@ -37,6 +37,7 @@ import { UpdateComponent } from './components/update/update.component';
 import { CollaboratorComponent } from './components/collaborator/collaborator.component';
 import { ProfilepicComponent } from './components/profilepic/profilepic.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { AuthguardServiceService } from './service/authService/authguard-service.service'
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     IconComponent,
     UpdateComponent,
     CollaboratorComponent,
-    ProfilepicComponent,
+    ProfilepicComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +82,9 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     MatDialogModule,
     ImageCropperModule
   ],
-  providers: [],
+  providers: [
+    AuthguardServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

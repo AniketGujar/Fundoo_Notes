@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('firstName', res['firstName'])
       localStorage.setItem('lastName', res['lastName'])
       localStorage.setItem('email', res['email'])
+      localStorage.setItem('image',res['imageUrl'])
 
       this.openSnackBar("Login Sucessfull..!!", "Close")
       this.router.navigate(['dashboard/notes']);

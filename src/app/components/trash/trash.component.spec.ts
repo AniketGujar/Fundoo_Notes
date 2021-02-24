@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 import { TrashComponent } from './trash.component';
 
@@ -8,7 +9,8 @@ describe('TrashComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TrashComponent ]
+      declarations: [ TrashComponent ],
+      imports:[HttpClientModule]
     })
     .compileComponents();
   });
