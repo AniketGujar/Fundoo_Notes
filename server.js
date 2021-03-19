@@ -3,10 +3,10 @@ const path = require('path');
 
 const app = express();
 
-app.use(express.static('./dist/bookstore'));
+app.use(express.static('./dist/fundoo-notes'));
 
 app.get('/*', (req,res)=>{
-    res.sendFile('index.html',{root:'dist/bookstore/'})
+    res.sendFile('index.html',{root:'dist/fundoo-notes/'})
 })
 
 app.listen(process.env.PORT || 8080);
