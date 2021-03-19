@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,EventEmitter, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NotesServiceService } from 'src/app/service/notesService/notes-service.service';
 import { CollaboratorComponent } from '../collaborator/collaborator.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
+import { DataService } from 'src/app/service/dataService/data.service';
 
 @Component({
   selector: 'app-icon',
@@ -11,11 +13,14 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class IconComponent implements OnInit {
 
-  constructor(private snackBar: MatSnackBar, private noteService: NotesServiceService, public dialog: MatDialog) { }
+  constructor(private snackBar: MatSnackBar, private noteService: NotesServiceService, public dialog: MatDialog,private dataService: DataService) { }
 
+  @Output() colorChange = new EventEmitter();
+  message:any;
   color: string = "#FFFFFF";
 
   ngOnInit(): void {
+
   }
 
   getId = (val) => {
@@ -48,6 +53,7 @@ export class IconComponent implements OnInit {
     this.noteService.postArchive(data).subscribe((response) => {
       console.log("Note Archived Sucessfully", response);
       this.openSnackBar('Note Archived', 'Close');
+      this.dataService.sendMessage({"message":"relaod"})
     }, (error) => {
       this.openSnackBar('Note Archived', 'Close');
       console.log("Note Archived Failed", error);
@@ -97,8 +103,8 @@ export class IconComponent implements OnInit {
       "color": this.color
     }
     this.noteService.colorChange(data).subscribe((response) => {
-      console.log("Color Changed Sucessfully", response);
-      window.location.reload();
+      console.log("Color Channg ged Sucessfully", response);
+      this.colorChange.emit({"message":"relaod by using event emitter"})
     }, (error) => {
       console.log("Color change failed", error);
     })

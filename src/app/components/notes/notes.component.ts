@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DataService } from 'src/app/service/dataService/data.service';
 import { NotesServiceService } from '../../service/notesService/notes-service.service'
 
 @Component({
@@ -9,25 +10,22 @@ import { NotesServiceService } from '../../service/notesService/notes-service.se
 })
 export class NotesComponent implements OnInit {
 
-  constructor(private snackBar: MatSnackBar, private noteService: NotesServiceService) { }
+  constructor(private snackBar: MatSnackBar, private noteService: NotesServiceService,private dataService: DataService) { }
 
   notes;
   originalNotes;
+  message:any;
+
   ngOnInit(): void {
     this.getAllNotes();
-  }
-  step = 0;
-
-  setStep(index: number) {
-    this.step = index;
-  }
-
-  nextStep() {
-    this.step++;
+    this.dataService.receivedMessage.subscribe((res)=>{
+      console.log("messsge rececived",res);
+      this.getAllNotes();
+    })
   }
 
-  prevStep() {
-    this.step--;
+  displayColor=(event)=>{
+    console.log("Color changed **********",event)
   }
 
   openSnackBar = (message, action) => {

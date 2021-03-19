@@ -37,7 +37,9 @@ import { UpdateComponent } from './components/update/update.component';
 import { CollaboratorComponent } from './components/collaborator/collaborator.component';
 import { ProfilepicComponent } from './components/profilepic/profilepic.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
-import { AuthguardServiceService } from './service/authService/authguard-service.service'
+import { AuthguardServiceService } from './service/authService/authguard-service.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment'
 
 @NgModule({
   declarations: [
@@ -80,7 +82,8 @@ import { AuthguardServiceService } from './service/authService/authguard-service
     MatExpansionModule,
     MatMenuModule,
     MatDialogModule,
-    ImageCropperModule
+    ImageCropperModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     AuthguardServiceService
