@@ -3,6 +3,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef } from '@angular/core';
 import { ProfilepicComponent } from '../profilepic/profilepic.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +21,7 @@ export class DashboardComponent implements OnInit {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public dialog: MatDialog) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, public dialog: MatDialog, private router:Router) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -40,6 +41,11 @@ export class DashboardComponent implements OnInit {
 
   refresh = () => {
     window.location.reload();
+  }
+
+  signOut=()=>{
+    localStorage.clear();
+    this.router.navigate(['/login'])
   }
 
   openProfileDialog(): void {

@@ -13,9 +13,9 @@ import { TrashComponent } from './components/trash/trash.component';
 import { AuthenticationGuard } from './authentication.guard'
 
 const routes: Routes = [
-  { path: '', redirectTo: "/register", pathMatch: 'full' },
-  { path: 'register', component: RegisterComponent },
+  { path: '', redirectTo: "/login", pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'forgotPassword', component: ForgotPassComponent },
   { path: 'resetpassword/:token', component: ResetPassComponent },
   {
