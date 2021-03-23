@@ -1,4 +1,4 @@
-<mat-card fxLayout="column" class="display">
+<mat-card fxLayout="column" class="display" [ngStyle]="myColor()">
     <div>
         <div *ngIf="isShown" fxLayout="row">
             <div fxLayoutAlign="space-evenly start" fxFlex=90 class="search">

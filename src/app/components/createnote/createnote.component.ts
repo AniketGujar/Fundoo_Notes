@@ -16,7 +16,7 @@ export class CreatenoteComponent implements OnInit {
   title: String;
   description: String;
   color:String="";
-    
+  
   ngOnInit(): void {
 
   }
@@ -70,5 +70,10 @@ export class CreatenoteComponent implements OnInit {
 
   toggleShow() {
     this.isShown = !this.isShown;
+  }
+
+  myColor=()=>{
+    let a = localStorage.getItem('color')
+    return { 'background-color':a}
   }
 }

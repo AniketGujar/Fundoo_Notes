@@ -35,7 +35,7 @@ export class IconComponent implements OnInit {
       } else if (val == "trash") {
         this.trashNote(card);
       } else if (val == "delete") {
-        this.deleteNote(card);
+        this.deleteNote();
       } else {
         this.changeColor(val, card)
       }
@@ -74,17 +74,18 @@ export class IconComponent implements OnInit {
     })
   }
 
-  deleteNote = (card) => {
+  deleteNote = () => {
+    let a= localStorage.getItem('card');
     let data = {
-      "noteIdList": [card]
+      "noteIdList": [a]
     }
-    // this.noteService.postArchive(data).subscribe((response) => {
-    //   console.log("Note Archived Sucessfully", response);
-    //   this.openSnackBar('Note Archived','Close');
-    // },(error)=>{
-    //   this.openSnackBar('Note Archived','Close');
-    //   console.log("Note Archived Failed", error);
-    // })
+    this.noteService.postArchive(data).subscribe((response) => {
+      console.log("Delete Sucessfully", response);
+      this.openSnackBar('Deleted','Close');
+    },(error)=>{
+      this.openSnackBar('Delete','Close');
+      console.log("Delete Failed", error);
+    })
   }
 
   openSnackBar = (message, action) => {
