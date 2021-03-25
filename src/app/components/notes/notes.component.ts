@@ -20,7 +20,6 @@ export class NotesComponent implements OnInit {
     this.getAllNotes();
     this.dataService.receivedMessage.subscribe((res)=>{
       console.log("messsge rececived",res);
-      this.getAllNotes();
     })
   }
 

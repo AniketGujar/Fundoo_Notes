@@ -10,7 +10,6 @@
 
 .example-is-mobile .example-toolbar {
     position: fixed;
-    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
     z-index: 2;
 }
 
@@ -30,28 +29,28 @@ h1.example-app-name {
     flex: 1 0 auto;
 }
 
-.icon{
+.icon {
     margin-right: 20px;
     margin-left: 10px;
 }
 
-.keepLogo{
+.keepLogo {
     height: 40px;
     width: 40px;
 }
 
-.search{
-    width:100%;
+.search {
+    width: 100%;
     font-size: 15px;
     border-top: 0px;
 }
 
-.sDiv{
+.sDiv {
     padding: 0px;
     padding-top: 20px;
 }
-.inSearch{
-    width:100%;
+.inSearch {
+    width: 100%;
 }
 
 ::ng-deep .mat-form-field-underline {
@@ -63,58 +62,54 @@ h1.example-app-name {
 }
 
 .sideNav {
-    color: #4A4A4A;
+    color: #4a4a4a;
 }
 
-.sideNav :hover{
-    color: #4A4A4A;
+.sideNav :hover {
+    color: #4a4a4a;
     border-radius: 0px 30px 30px 0px;
 }
 
-.sideNav :focus{
-    color: #4A4A4A;
-    background-color: #FEEFC3;
+.sideNav :focus {
+    color: #4a4a4a;
+    background-color: #feefc3;
     border-radius: 0px 30px 30px 0px;
 }
 
 .mat-form-field {
-    padding-right: 0em;
-    padding-bottom: 0em;
-    padding-left: 0em;
-}
-
-.searchDiv {
-    // padding-bottom: 0px;
-    height: 60px;
-  display: flex;
-  margin-top: 7px;
-
-  // border: 1px solid blue;
-  flex-direction: column;
-  align-content: center;
-  mat-form-field {
-    margin-top: 2px;
-
-    width: 100%;
-  }
+    padding-top: 10px; 
 }
 
 @media screen and (max-width: 800px) {
-    .searchDiv{
-        width:80%;
+    .searchDiv {
+        width: 80%;
         font-size: 15px;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .name{
+    .name {
         visibility: hidden;
     }
 }
 
 ::ng-deep.mat-menu-content {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 15px;
-  padding-right: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.mat-drawer-container {
+    background-color: #ffffff;
+}
+
+.mat-drawer-side {
+    border-right: none;
+}
+
+.active-list-item {
+    background-color: #feefc3;
+    color: #4a4a4a;
+    border-radius: 0px 30px 30px 0px;
 }

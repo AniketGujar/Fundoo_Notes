@@ -18,13 +18,11 @@
     </div>
 
     <div fxFlexLayout="row" fxLayoutAlign="start" fxFlex=100 fxFlex.xs=20>
-      <div fxFlex=65 class="searchDiv">
-        <mat-form-field appearance="fill" [style.fontSize.px]="12">
+        <mat-form-field appearance="fill" fxFlex=70>
           <img src="../../../assets/images/search-black-18dp.svg">
           <input matInput class="inSearch" autocomplete="none">
         </mat-form-field>
-      </div>
-
+ 
       <div fxFlex fxFlexLayout="row" fxLayoutAlign="end center">
         <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="refresh()">
           <img src="../../../assets/images/refresh-24px.svg">
@@ -68,19 +66,19 @@
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56">
       <mat-nav-list style="width:200px;" class="sideNav">
-        <a mat-list-item routerLink='notes'>
+        <a mat-list-item routerLink='notes' routerLinkActive="active-list-item">
           <mat-icon class="icon">lightbulb</mat-icon> Notes
         </a>
-        <a mat-list-item routerLink="reminders">
+        <a mat-list-item routerLink="reminders" routerLinkActive="active-list-item">
           <mat-icon class="icon">notifications_none</mat-icon> Reminders
         </a>
-        <a mat-list-item routerLink="labels">
+        <a mat-list-item routerLink="labels" routerLinkActive="active-list-item">
           <mat-icon class="icon">create</mat-icon>Edit Labels
         </a>
-        <a mat-list-item routerLink="archive">
+        <a mat-list-item routerLink="archive" routerLinkActive="active-list-item">
           <mat-icon class="icon">archive</mat-icon>Archive
         </a>
-        <a mat-list-item routerLink="trash">
+        <a mat-list-item routerLink="trash" routerLinkActive="active-list-item">
           <mat-icon class="icon">delete_outline</mat-icon>Trash
         </a>
 

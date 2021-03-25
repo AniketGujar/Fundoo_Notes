@@ -2,15 +2,15 @@
     <mat-card *ngFor="let card of notesArray, let i = index" [style.background-color]=card.color>
         <div (click)="cardData(card);openDialog(card)">
             <div>
-                <div>
-                    <b style="color: rgb(39, 36, 36);">{{card.title}}</b>
+                <div class="title">
+                    {{card.title}}
                 </div>
                 <div>
                     {{card.description}}
                 </div>
             </div>
         </div>
-        <div class="icon" >
+        <div class="icon">
             <app-icon (click)="cardData(card)"></app-icon>
         </div>
     </mat-card>
