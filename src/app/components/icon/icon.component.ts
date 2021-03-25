@@ -77,13 +77,14 @@ export class IconComponent implements OnInit {
   deleteNote = () => {
     let a= localStorage.getItem('card');
     let data = {
-      "noteIdList": [a]
+      "noteIdList": [a],
+      "isDeleted": true
     }
-    this.noteService.postArchive(data).subscribe((response) => {
+    this.noteService.delete(data).subscribe((response) => {
       console.log("Delete Sucessfully", response);
       this.openSnackBar('Deleted','Close');
     },(error)=>{
-      this.openSnackBar('Delete','Close');
+      this.openSnackBar('Delete Failed','Close');
       console.log("Delete Failed", error);
     })
   }

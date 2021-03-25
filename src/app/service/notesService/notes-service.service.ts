@@ -36,6 +36,10 @@ export class NotesServiceService {
     return this.httpService.update('notes/trashNotes',data)
   }
 
+  delete=(data)=>{
+    return this.httpService.delete('notes/deleteForeverNotes',data)
+  }
+
   colorChange=(data)=>{
     return this.httpService.update('notes/changesColorNotes',data)
   }

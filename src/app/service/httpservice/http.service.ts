@@ -82,4 +82,14 @@ export class HttpService {
     }
     return this.http.post((this.BaseUrl + url), data, options)
   }
+
+  delete = (url, data) => {
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': localStorage.getItem('token'),
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.post(this.BaseUrl + url, data, options)
+  }
 }

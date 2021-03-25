@@ -16,12 +16,13 @@ export class UpdateComponent implements OnInit {
     this.title = data.title;
     this.description = data.description;
     this.noteData=data;
+    this.color= this.noteData.color;
   }
 
   title: String;
   description: String;
   id: String;
-  color:String="#ffffff";
+  color:String;
 
   ngOnInit(): void {
   }
@@ -49,7 +50,6 @@ export class UpdateComponent implements OnInit {
 
     this.noteService.updateNote(data).subscribe((response) => {
       console.log(" Updated Note Sucessfully", response);
-      this.router.navigate(['/dashboard/notes']);
     })
   }
 }

@@ -12,8 +12,9 @@
         </div>
         <div fxLayout="row">
             <div fxFlex=75 class="search">
-                <input matInput placeholder="Take a note..." autocomplete="off" [(ngModel)]="description"
-                    (click)="toggleShow()">
+                <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="auto"
+                cdkAutosizeMaxRows="22" cdkAutosizeMaxColumns="auto" placeholder="Take a note..." autocomplete="off" [(ngModel)]="description"
+                    (click)="toggleShow()"></textarea>
             </div>
             <div fxLayout="row" *ngIf="!isShown">
                 <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">

@@ -3,15 +3,17 @@
         <div fxLayout="column" fxLayoutAlign="space-evenly start">
             <input matInput placeholder="Title" [(ngModel)]="title">
         </div>
-        <div>
-            <input matInput placeholder="Take a note..." autocomplete="off" [(ngModel)]="description">
+        <div class="description">
+            <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="auto"
+                cdkAutosizeMaxRows="22" placeholder="Take a note..." autocomplete="off"
+                [(ngModel)]="description"></textarea>
         </div>
     </div>
 
     <div fxLayout="row" fxLayout.xs="column" fxFlex>
         <div fxFlex=75>
             <app-icon></app-icon>
-        </div> 
+        </div>
         <div fxLayoutAlign="end center" fxFlex>
             <button mat-button color="primary" (click)="update();closeDialog()">Close</button>
         </div>
