@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef, HostListener} from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NotesServiceService } from '../../service/notesService/notes-service.service'
 import { NotesComponent } from '../notes/notes.component'
@@ -10,8 +10,9 @@ import { NotesComponent } from '../notes/notes.component'
 })
 export class CreatenoteComponent implements OnInit {
 
-  constructor(private snackBar: MatSnackBar, private noteService: NotesServiceService, private display: NotesComponent
-  ) { }
+  public text: String;
+  constructor(private snackBar: MatSnackBar, private noteService: NotesServiceService, private display: NotesComponent,private eRef: ElementRef) { 
+  }
 
   title: String;
   description: String;
@@ -22,6 +23,14 @@ export class CreatenoteComponent implements OnInit {
   }
   step = 0;
 
+  @HostListener('document:click', ['$event'])
+  clickout(event) {
+    if(this.eRef.nativeElement.contains(event.target)) {
+      this.text = "clicked inside";
+    } else {
+      this.text = "clicked outside";
+    }
+  }
   setStep(index: number) {
     this.step = index;
   }

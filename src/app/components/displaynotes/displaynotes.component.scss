@@ -1,7 +1,9 @@
 mat-card {
-  width: 240px;
+  width: 230px;
   margin: 10px;
   padding-bottom: 0px;
+  max-height: 400px;
+  overflow-y: hidden;
 }
 
 mat-card:hover .icon{
@@ -12,14 +14,14 @@ mat-card:hover .icon{
   visibility: hidden;
 }
 
-mat-card {
-  max-height: 400px;
-  overflow-y: hidden;
-}
-
 .title {
   letter-spacing: .00625em;
   font-family: 'Google Sans',Roboto,Arial,sans-serif;
   font-size: 1rem;
   font-weight: 500;
+}
+
+ngx-masonry{
+  margin: auto;
+  width: 86%;
 }

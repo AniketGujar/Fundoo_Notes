@@ -1,17 +1,19 @@
-<div fxFlex="grow" fxLayout="row wrap" fxLayoutAlign="center start" fxLayoutGap >
-    <mat-card *ngFor="let card of notesArray, let i = index" [style.background-color]=card.color>
-        <div (click)="cardData(card);openDialog(card)">
-            <div>
-                <div class="title">
-                    {{card.title}}
-                </div>
+<ngx-masonry>
+    <div fxFlex="grow" fxLayout="row wrap" fxLayoutAlign="center start" fxLayoutGap>
+        <mat-card ngxMasonryItem *ngFor="let card of notesArray, let i = index" [style.background-color]=card.color>
+            <div (click)="cardData(card);openDialog(card)">
                 <div>
-                    {{card.description}}
+                    <div class="title">
+                        {{card.title}}
+                    </div>
+                    <div>
+                        {{card.description}}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="icon">
-            <app-icon (click)="cardData(card)"></app-icon>
-        </div>
-    </mat-card>
-</div>
+            <div class="icon">
+                <app-icon (click)="cardData(card)"></app-icon>
+            </div>
+        </mat-card>
+    </div>
+</ngx-masonry>

@@ -40,6 +40,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 import { AuthguardServiceService } from './service/authService/authguard-service.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment'
+import { NgxMasonryModule } from 'ngx-masonry';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { environment } from '../environments/environment'
     MatMenuModule,
     MatDialogModule,
     ImageCropperModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    NgxMasonryModule
   ],
   providers: [
     AuthguardServiceService
