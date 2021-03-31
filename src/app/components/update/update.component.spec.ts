@@ -4,6 +4,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { UpdateComponent } from './update.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {TextFieldModule} from '@angular/cdk/text-field';
 
 describe('UpdateComponent', () => {
   let component: UpdateComponent;
@@ -13,10 +15,11 @@ describe('UpdateComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ UpdateComponent ],
       providers:[
-        NotesServiceService
+        NotesServiceService,    { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MatDialogRef, useValue: {} }
       ],
       imports:[
-        RouterModule, RouterTestingModule,HttpClientModule
+        RouterModule, RouterTestingModule,HttpClientModule,MatDialogModule,TextFieldModule
       ]
     })
     .compileComponents();
